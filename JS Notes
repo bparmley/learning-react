@@ -39,6 +39,194 @@ Named exports need the exact name but you can give it an alias
     import {baseData as Smith} from './utility.js'
 or bundle them together
     import * as bundled from './utility.js'
+call them like this
+    bundled.baseData
+    bundled.clean
+-----------------------------------------------------------------
+CLASSES
+blueprints for javascript objects
 
-You can define the name using aliases otherwise the name is defined by the export
+Properties are variables in the class
+Methods are functions in the class
+
+    class Person{
+        name = 'Brandon'        //property
+        call = () => {...}      //method
+    }
+
+Classes are called using the "new" keyword
+
+    const myPerson = new Person()   //assigns the template class Person to the const variable of myPerson
+        myPerson.call()             //runs myPerson's instance of the call method from Person
+    console.log(myPerson.name)      //console.log's myPerson's instance of name from Person
+
+Inheritance
+
+"extends" keyword allows a class to inherit from another
+
+In this example above Person extends Master
+- - - - - - - - - - - - - - - - - - - - - - - - - 
+In the example below Person extends Human
+
+    class Human {
+    constructor() {
+        this.gender = "Female";
+    }
+    
+    printGender() {
+        console.log(this.gender);
+    }
+    }
+
+    class Person extends Human {
+    constructor() { //default function that can be added to any class and will run whenever you instanciate the class
+        super(); //keyword/method that allows access to the parent class's methods properties and constructor function
+        this.name = "George";
+        this.gender = "Male";
+    }
+    
+    printMyName() {
+        console.log(this.name);
+    }
+    }
+
+    const person = new Person();
+    person.name = "Brandon";
+    person.printGender(); // print to the console "Male"
+    person.printMyName(); // print to the console "Brandon"
+
+ES6 Classes don't need the constructor
+
+    class Human {
+    gender = 'Female';
+    printGender = () => {
+        console.log(this.gender);
+    }
+    }
+
+    class Person extends Human {
+    name = 'Max';
+    gender = 'Male';
+
+    printMyName = () => {
+        console.log(this.name);
+    }
+    }
+
+    const person = new Person();
+    //person.name = 'Brandon';
+    person.printGender(); // print to the console "Male"
+    person.printMyName(); // print to the console "Brandon"
+
+-----------------------------------------------------------------
+SPREAD & REST OPERATORS
+
+Property Spread Notation
+
+in spread ... is used to split up array elements or object properties
+    const newObject = {...oldObject, newProp: 5}
+    const newArray = [...oldArray, 1, 2]
+in newObject the newProp value would override the value of newProp if it existed in oldObject
+
+    const numbers = [1,2,3,4,5];
+    const newNums = [...numbers,6,7]; //using spread operator to extend array
+
+    console.log(newNums); //print to console 1,2,3,4,5,6,7
+
+in rest ... is used to merge a list of function arguments into an array
+    function sortArgs(...args) { //takes all arguments and puts it into args array
+        return args.sort(); //returns sorted list of arguments
+    }
+
+const numbers = [1,2,3,4,5];
+const newNums = [...numbers,6,7]
+
+console.log(newNums);                   //print to console 1,2,3,4,5,6,7 using spread operator to extend array
+
+const person = {
+  name: 'Brandon'
+}
+
+const newPerson = {
+  ...person,                            //add the name name/value pair from person
+  age: 36
+}
+
+console.log(newPerson);
+
+const filter = (...args) => {           //use rest to take all arguments when filter is called
+  return args.filter(el => el === 1);   //return the argument that matches 1
+}
+
+console.log(filter(1, 2, 1));           // print to console [1,1]
+
+-----------------------------------------------------------------
+DESTRUCTURING
+
+Easily extract specific array elements or object properties and store them in variables for arrays and objects
+
+Array Destructuring
+    [a,b] = ['Hello', 'Brandon']
+    console.log(a);     // Hello
+    console.log(b);     // Brandon
+
+Object Destructuring
+    {name, class, lvl} = {name: 'Draig', age: 36, class: 'Hunter', lvl: 60};
+    console.log(name)   // Brandon
+    console.log(age)    // undefined
+
+-----------------------------------------------------------------
+REFERENCE AND PRIMITIVE TYPES
+Primitive types = string number boolean null undefined and symbol
+Reference types = Arrays, Object literals, and Dates
+    When you set a variable to the value of any other variable(regardless of type), it becomes a reference type.
+
+    const number = 1; //primitive type
+    const num2 = number; //reference type because it references number and copies it's value. 
+
+    console.log(num2); //although it logs a number it is still a reference type because the value was copied from number
+
+    const person = { //reference type
+    name: 'Brandon'
+    }
+
+    const secondPerson = person; //this does not copy person, it rather stores person in memory and uses a pointer to that data
+
+    person.name = 'Charlene';
+
+    console.log(secondPerson);  //will print Charlene as name because setting setting secondPerson = person isn't copying the object but instead is pointing to the original object
+
+    const thirdPerson = {
+    ...person; //using spread we can actually copy the values not the pointer
+    }
+
+    person.name = 'Darin';
+
+    console.log(thirdPerson); // will have Charlene as the name since we copied the value after changing to charlene but before changing it to Darin
+
+-----------------------------------------------------------------
+REFRESHING ARRAY FUNCTIONS
+
+const numbers = [1, 2, 3];
+
+//map is like forEach for arrays
+const doubleNumArray = numbers.map((n) => { 
+  return n*2;
+});
+
+console.log(numbers); //console log [1, 2, 3]
+console.log(doubleNumArray); //console log [2, 4, 6]
+
+IMPORTANT ARRAY FUNCTIONS FOR THIS COURSE
+map()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+find()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+findIndex()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+filter()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+reduce()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce?v=b
+concat()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat?v=b
+slice()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+splice()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+
+//see MDN for more array functions
+
 -----------------------------------------------------------------
