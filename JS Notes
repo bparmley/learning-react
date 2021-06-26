@@ -1,0 +1,44 @@
+RETURN VALUE WITH ONLY 1 PARAMETER IN A FUNCTION SHORTHAND
+
+const multiply = number => number * 2;
+
+-----------------------------------------------------------------
+
+EXPORTS AND IMPORTS FOR MODULARIZING
+
+file person.js contains
+- - - - - - - - - - - - - -
+    const person = {
+        name: 'Brandon'
+    }
+
+    export default person
+- - - - - - - - - - - - - -
+
+file utility.js contains
+- - - - - - - - - - - - - -
+    export const clean = () => {...}
+
+    export const baseData = 10
+- - - - - - - - - - - - - -
+
+file app.js imports from these files
+- - - - - - - - - - - - - -
+    import person from '.person.js'
+    import {baseData, clean} from './utility.js'
+- - - - - - - - - - - - - -
+
+Default export doesn't matter which you do
+
+    import person from './person.js'
+or
+    import prs from './person.js'
+to give it your own name
+
+Named exports need the exact name but you can give it an alias
+    import {baseData as Smith} from './utility.js'
+or bundle them together
+    import * as bundled from './utility.js'
+
+You can define the name using aliases otherwise the name is defined by the export
+-----------------------------------------------------------------
