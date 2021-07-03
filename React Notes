@@ -21,5 +21,10 @@ Create the react app by using Node.js code
     cd into expense-tracker
     npm start to start the server
 
+JSX CODE
+Built by React team
+Stands for JavaScript XML
+It is HTML code inside JavaScript
+Transforms into DOM Objects once it is compiled
 
 
