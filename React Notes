@@ -18,4 +18,8 @@ Define the desired target state(s) and let React figure out the actual JavaScrip
 
 Create the react app by using Node.js code
     npx create-react-app expense-tracker
+    cd into expense-tracker
+    npm start to start the server
+
+
 
