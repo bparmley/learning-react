@@ -1,0 +1,21 @@
+REACT BASICS
+React is a JavaScript Library for building user interfaces
+Libraries simplify building complex interactive and reactive UI
+
+React is Component based
+- all user interfaces are made of components
+    - Buttons
+    - Drop Downs
+    - Repeated items with different data
+
+Components are reusable bits of UI elements
+
+React uses components because they are reusable and allows us to separate concerns (small separate use files)
+
+Components are built using HTML CSS and JavaScript through React calls
+
+Define the desired target state(s) and let React figure out the actual JavaScript DOM instructions
+
+Create the react app by using Node.js code
+    npx create-react-app expense-tracker
+
