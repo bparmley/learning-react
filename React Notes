@@ -27,4 +27,24 @@ Stands for JavaScript XML
 It is HTML code inside JavaScript
 Transforms into DOM Objects once it is compiled
 
+===================================================================
+
+STATE
+
+allows react to re-evaluate component data as it changes.
+
+States are brought in as a hook via named import from React like this
+
+    import React, { useState } from 'react';
+
+and called as a method inside the component arrow function.
+
+    const ExpenseItem = (props) => {  
+        useState();
+        ...
+    }
+
+Use state registers the value for a certain component instance. Each component has its own state managed independently by react.
+
+
 
