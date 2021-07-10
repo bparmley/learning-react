@@ -1,0 +1,18 @@
+JSX CODE
+
+jsx code is javascript code that has an XML format. It needs to be compiled into JavaScript in order to be used on the web.
+
+It uses React.createElement() method to return the html/xml
+
+  return (React.createElement('div', {}, 
+    React.createElement('h2', {}, "Let's get started!"), 
+    React.createElement(Expenses, {items: expenses}))
+  );
+
+rather than the jsx
+  return (
+    <div>
+      <h2>Let's get started!</h2>
+      <Expenses items={expenses} />
+    </div>
+  );
