@@ -1,32 +1,38 @@
-import React from 'react';
+import React from "react";
 
-const Characters = props => {
+import CharacterSummary from "./CharacterSummary";
+
+const Characters = (props) => {
   const charactersData = props.charactersData;
 
   return (
     <article className="character-list">
-      <div className="character-list__character">
-        <h3>{charactersData[0].charName}</h3>
-        <p>Race: {charactersData[0].charRace}<br/>
-        Class: {charactersData[0].charClass}</p>
-      </div>
-      <div className="character-list__character">
-        <h3>{charactersData[1].charName}</h3>
-        <p>Race: {charactersData[1].charRace}<br/>
-        Class: {charactersData[1].charClass}</p>
-      </div>
-      <div className="character-list__character">
-        <h3>{charactersData[2].charName}</h3>
-        <p>Race: {charactersData[2].charRace}<br/>
-        Class: {charactersData[2].charClass}</p>
-      </div>
-      <div className="character-list__character">
-        <h3>{charactersData[3].charName}</h3>
-        <p>Race: {charactersData[3].charRace}<br/>
-        Class: {charactersData[3].charClass}</p>
-      </div>
+      <CharacterSummary
+        charName={charactersData[0].charName}
+        charRace={charactersData[0].charRace}
+        charClass={charactersData[0].charClass}
+        key={charactersData[0].id}
+      />
+      <CharacterSummary
+        charName={charactersData[1].charName}
+        charRace={charactersData[1].charRace}
+        charClass={charactersData[1].charClass}
+        key={charactersData[1].id}
+      />
+      <CharacterSummary
+        charName={charactersData[2].charName}
+        charRace={charactersData[2].charRace}
+        charClass={charactersData[2].charClass}
+        key={charactersData[2].id}
+      />
+      <CharacterSummary
+        charName={charactersData[3].charName}
+        charRace={charactersData[3].charRace}
+        charClass={charactersData[3].charClass}
+        key={charactersData[3].id}
+      />
     </article>
   );
-}
+};
 
 export default Characters;
